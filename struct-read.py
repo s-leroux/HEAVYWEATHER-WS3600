@@ -11,11 +11,13 @@ import struct
 f = open("history.dat", "rb")
 
 try:
+    s = struct.Struct("<dffflfffffffl")
     while True:
 	record = f.read(56)
 	if len(record) != 56:
 	    break;
-	# Do stuff with record
+    
+	print s.unpack(record)
 
 except IOError:
 	# Your error handling here
